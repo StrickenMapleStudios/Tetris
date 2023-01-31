@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/ColorUSS.uss?fileID=7433441132597879392&amp;guid=dead6ae7d772cc440b543c04685755b7&amp;type=3#ColorUSS" />
+    <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/ContainersUSS.uss?fileID=7433441132597879392&amp;guid=cde06b5cf8c7d5849a9bd1bc9dfdbb72&amp;type=3#ContainersUSS" />
+    <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/ControlsUSS.uss?fileID=7433441132597879392&amp;guid=deedcdc32846da14a80468df4a67321a&amp;type=3#ControlsUSS" />
+    <ui:VisualElement name="Background" style="background-color: rgba(0, 0, 0, 0); flex-grow: 1; opacity: 1; display: flex; visibility: visible; overflow: hidden; align-items: center; justify-content: center;">
+        <ui:VisualElement name="UI" style="height: 90%; width: 59.2%; align-items: center; justify-content: space-around; position: absolute;">
+            <ui:VisualElement name="LeftMenu" class="visual-element-style side-menu-style background-color background-color-style" style="position: absolute; align-items: center; justify-content: flex-start; top: 0; bottom: 0; left: 0;">
+                <ui:VisualElement name="Layout" class="layout-style" style="justify-content: space-between;">
+                    <ui:VisualElement name="Hold" class="info-panel-color-style info-panel-style tetromino-container-style" style="position: relative; left: 0; right: 0;">
+                        <ui:Label text="HOLD" name="Title" class="text-style text-color-style" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Level" class="info-panel-color-style info-panel-style" style="position: relative; left: 0; right: 0;">
+                        <ui:Label text="LEVEL" name="Title" class="title-style text-style text-color-style" />
+                        <ui:Label name="Value" text="0" class="text-style info-panel-text-style text-color-style" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Rows" class="info-panel-color-style info-panel-style" style="position: relative; left: 0; right: 0;">
+                        <ui:Label text="ROWS" name="Title" class="title-style text-style text-color-style" />
+                        <ui:Label name="Value" text="0" class="text-style info-panel-text-style text-color-style" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Field" class="visual-element-style background-color-style" style="width: 46.5%; position: absolute; align-items: center; justify-content: center; top: 0; bottom: 0;">
+                <ui:VisualElement name="Borders" class="visual-element-style info-panel-color-style" style="position: absolute; width: 90%; height: 95%; background-color: rgb(0, 0, 0);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="RightMenu" class="visual-element-style side-menu-style background-color background-color-style" style="position: absolute; align-items: center; justify-content: flex-start; top: 0; bottom: 0; right: 0;">
+                <ui:VisualElement name="Layout" class="layout-style" style="justify-content: space-between;">
+                    <ui:VisualElement name="Next" class="info-panel-color-style info-panel-style tetromino-container-style" style="position: relative; left: 0; right: 0;">
+                        <ui:Label text="NEXT" name="Title" class="title-style text-style text-color-style" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Level" class="info-panel-color-style info-panel-style" style="position: relative; left: 0; right: 0;">
+                        <ui:Label text="SCORE" name="Score" class="title-style text-style text-color-style" />
+                        <ui:Label name="Value" text="0" class="text-style info-panel-text-style text-color-style" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Buttons" style="height: 28%; left: 0; right: 0; justify-content: space-between;">
+                        <ui:Button text="Pause" name="Pause" class="button-style" />
+                        <ui:Button text="Restart" name="Restart" class="button-style" />
+                        <ui:Button text="Exit" name="Exit" class="button-style" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

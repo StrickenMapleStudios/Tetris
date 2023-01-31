@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58de52f4c863af74e9af4cd4f775af23, type: 3}
+  m_Name: GamePrefs
+  m_EditorClassIdentifier: 
+  <TickRate>k__BackingField: 1
+  <SpeedUpForLevel>k__BackingField: 0.03275862
+  <LandTick>k__BackingField: 0.01
+  <BlockFieldSpeed>k__BackingField: 0.05
+  tetrominoes:
+  - {fileID: 11400000, guid: 462540cc3f207d54882426f0b3dcda37, type: 2}
+  - {fileID: 11400000, guid: 569a5ca3ee63ead458c0d7a1439cb711, type: 2}
+  - {fileID: 11400000, guid: acc12228a8bc9324fb07d3672dfdabb7, type: 2}
+  - {fileID: 11400000, guid: d2b0c91c9a9d4e44e9b7220074d54e03, type: 2}
+  - {fileID: 11400000, guid: e027ab69c1ceb964a93353dd320f9e33, type: 2}
+  - {fileID: 11400000, guid: e2c3a39f26a91b14597fa6191b248f67, type: 2}
+  - {fileID: 11400000, guid: ee11103035e65d74bac2014f3b838cf7, type: 2}
+  - {fileID: 11400000, guid: 80615d1f9d982cb438bbc51c07902e41, type: 2}
