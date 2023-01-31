@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Tetrominoes {
+namespace Game.Minoes {
 
     [CreateAssetMenu(fileName = "Tetromino", menuName = "SO/Tetromino")]
     public class TetrominoSO : ScriptableObject

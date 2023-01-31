@@ -3,16 +3,25 @@ using UnityEngine;
 
 namespace Game.Field {
 
-    using Tetrominoes;
-    using static Tetrominoes.Status;
+    using Minoes;
+    using static Minoes.Status;
+    using static RowState;
+
+    public enum RowState {
+        UPDATED,
+        NOT_UPDATED
+    }
 
     public class Row : MonoBehaviour
     {
         [field: SerializeField] public List<Mino> Minoes { get; private set; }
+        [SerializeField] private Animator _animator;
 
         private int filledCount;
 
         public bool IsFilled => filledCount == Minoes.Count;
+
+        public RowState State { get; set; } = UPDATED;
 
         private void Start() {
             filledCount = 0;
@@ -26,11 +35,20 @@ namespace Game.Field {
             }
         }
 
+        public void Light(int value = 1) {
+            _animator.enabled = value != 0 ? true: false;
+        }
+
         public void Clear() {
+            if (!IsFilled) return;
+
             foreach (var mino in Minoes) {
                 mino.Clear();
             }
             filledCount = 0;
+            State = NOT_UPDATED;
+
+            GameEventChannel.current.OnRowCleared.Invoke();
         }
 
         public void Clear(int index) {

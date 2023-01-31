@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Tetrominoes {
+namespace Game.Minoes {
 
     public enum TetrominoType {
         I, J, L, O, S, T, Z, BASE

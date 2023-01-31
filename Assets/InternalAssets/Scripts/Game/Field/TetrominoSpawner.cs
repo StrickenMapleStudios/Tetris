@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Field {
 
-    using Tetrominoes;
+    using Minoes;
 
     public class TetrominoSpawner : MonoBehaviour
     {

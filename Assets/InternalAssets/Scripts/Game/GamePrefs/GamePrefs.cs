@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
-    using Tetrominoes;
+    using Minoes;
 
     [CreateAssetMenu(fileName = "GamePrefs", menuName = "Prefs/GamePrefs")]
     public class GamePrefs : ScriptableObject

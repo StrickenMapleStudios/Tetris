@@ -22,6 +22,8 @@ namespace Game {
 
         public UnityEvent<int> OnRowsFilled = new UnityEvent<int>();
 
+        public UnityEvent OnRowCleared = new UnityEvent();
+
         public UnityEvent OnLevelChanged = new UnityEvent();
 
         public UnityEvent OnRowsCountChanged = new UnityEvent();
@@ -32,6 +34,10 @@ namespace Game {
         
         private void OnEnable() {
             current = this;
+        }
+
+        public void RowsFilled(int count) {
+            OnRowsFilled.Invoke(count);
         }
     }
 }

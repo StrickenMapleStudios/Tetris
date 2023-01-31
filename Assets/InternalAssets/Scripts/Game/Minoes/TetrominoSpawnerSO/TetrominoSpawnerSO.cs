@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Tetrominoes {
+namespace Game.Minoes {
 
     [CreateAssetMenu(fileName = "TetrominoSpawner", menuName = "SO/TetrominoSpawner")]
     public class TetrominoSpawnerSO : ScriptableObject

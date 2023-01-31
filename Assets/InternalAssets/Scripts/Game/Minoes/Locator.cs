@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.Tetrominoes {
+namespace Game.Minoes {
 
     public class Locator : MonoBehaviour
     {

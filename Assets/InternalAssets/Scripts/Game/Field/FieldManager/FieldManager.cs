@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Game.Field {
 
-    using Tetrominoes;
+    using Minoes;
     using System.Collections.Generic;
-    using static Tetrominoes.Status;
+    using static Minoes.Status;
     using System.Collections;
 
     public class Borders {
@@ -25,8 +25,22 @@ namespace Game.Field {
 
         [SerializeField] private List<Row> _rows;
 
+        private int _filledCount = 0;
+
+        private int FilledCount {
+            get => _filledCount;
+            set {
+                _filledCount = Mathf.Max(0, value);
+                if (_filledCount == 0) {
+                    UpdateField();
+                }
+            }
+        }
+
         private void OnEnable() {
             Instance = this;
+
+            GameEventChannel.current.OnRowCleared.AddListener(delegate { FilledCount--; });
 
             GameEventChannel.current.OnGameOver.AddListener(BlockField);
         }
@@ -42,22 +56,29 @@ namespace Game.Field {
 
                 _rows[y].Place(x, mino);
             }
-            if (fieldUpdate) { UpdateField(); }
+            if (fieldUpdate) { CheckField(); }
         }
 
-        private void UpdateField() {
-            int count = 0;
+        private void CheckField() {
+            _filledCount = 0;
             for (int i = _rows.Count - 1; i >= 0; --i) {
 
                 if (!_rows[i].IsFilled) continue;
 
-                count++;
+                _rows[i].Light();
 
-                _rows[i].Clear();
-                LowerRows(i);
+                _filledCount++;
             }
-            if (count != 0) {
-                GameEventChannel.current.OnRowsFilled.Invoke(count);
+            if (_filledCount != 0) {
+                GameEventChannel.current.RowsFilled(_filledCount);
+            }
+        }
+
+        private void UpdateField() {
+            for (int i = _rows.Count - 1; i >= 0; --i) {
+                if (_rows[i].State == RowState.UPDATED) continue;
+                LowerRows(i);
+                _rows[i].State = RowState.UPDATED;
             }
         }
 

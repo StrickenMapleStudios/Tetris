@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Game {
     using System.Collections;
     using Field;
-    using Tetrominoes;
+    using Minoes;
 
     public partial class GameManager
     {

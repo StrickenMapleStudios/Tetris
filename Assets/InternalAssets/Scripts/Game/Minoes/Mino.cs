@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Tetrominoes {
+namespace Game.Minoes {
 
     using static Status;
     using static TetrominoType;
@@ -12,6 +12,7 @@ namespace Game.Tetrominoes {
         BLOCKED
     }
 
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Mino : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _renderer;

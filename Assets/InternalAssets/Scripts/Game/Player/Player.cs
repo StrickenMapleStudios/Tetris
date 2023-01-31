@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace Game.Player {
 
-    using Tetrominoes;
+    using Minoes;
     
     public partial class Player : MonoBehaviour
     {

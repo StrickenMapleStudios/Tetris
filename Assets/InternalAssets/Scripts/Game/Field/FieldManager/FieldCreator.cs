@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Field {
 
-    using Tetrominoes;
+    using Minoes;
 
     public partial class FieldManager
     {

@@ -4,7 +4,7 @@ using Input;
 namespace Game {
     using System.Collections;
     using Field;
-    using Tetrominoes;
+    using Minoes;
     using UnityEngine.SceneManagement;
 
     public partial class GameManager : MonoBehaviour

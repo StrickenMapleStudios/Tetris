@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Game.Field {
     
-    using Tetrominoes;
-    using static Tetrominoes.Spawn;
+    using Minoes;
+    using static Minoes.Spawn;
 
     public class SpawnPoint : MonoBehaviour
     {
