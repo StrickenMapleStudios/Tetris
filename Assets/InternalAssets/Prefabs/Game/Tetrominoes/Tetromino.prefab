@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3830355758197706072}
   - component: {fileID: 3830355758197706073}
-  - component: {fileID: 3742654151978475339}
   m_Layer: 0
   m_Name: Tetromino
   m_TagString: Untagged
@@ -30,6 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4749670469611256171}
   - {fileID: 1904512747122320961}
   - {fileID: 454754405359824250}
   - {fileID: 6182676222321339160}
@@ -50,7 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531d84d46963243419386324b543b4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trail: {fileID: 7399160313473510968, guid: 40ad7081588b99046ad30fb8307f2442, type: 3}
+  _dust: {fileID: 4046001766906380521, guid: d6a841940fa5e6f4198c87bb1694c8ac, type: 3}
   <Type>k__BackingField: 7
+  _renderer: {fileID: 1159855165655578574}
   _moveLocator: {fileID: 6213513711779120633}
   _lowerLocator: {fileID: 412094966881223579}
   _rotateLocator: {fileID: 8696914462741762326}
@@ -60,26 +63,90 @@ MonoBehaviour:
   - {fileID: 697812443375347960}
   - {fileID: 8880807898376726085}
   - {fileID: 1775266597519449403}
---- !u!95 &3742654151978475339
-Animator:
-  serializedVersion: 4
+--- !u!1 &3941485400033631254
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3830355758197706074}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4749670469611256171}
+  - component: {fileID: 1159855165655578574}
+  m_Layer: 0
+  m_Name: Bounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4749670469611256171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941485400033631254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3830355758197706072}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1159855165655578574
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3941485400033631254}
   m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 57178a3d7e2ff814eaac966ca08036cb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: d6121f870dde7b94d812fe421a959f62, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &7351380748547318621
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +181,7 @@ Transform:
   - {fileID: 8880807898376726087}
   - {fileID: 1775266597519449401}
   m_Father: {fileID: 3830355758197706072}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!210 &5574977919638871096
 SortingGroup:
@@ -125,7 +192,7 @@ SortingGroup:
   m_GameObject: {fileID: 7351380748547318621}
   m_Enabled: 1
   m_SortingLayerID: 390378681
-  m_SortingLayer: 2
+  m_SortingLayer: -2
   m_SortingOrder: 1
 --- !u!1001 &506101460091529193
 PrefabInstance:
@@ -144,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7937250566483026227, guid: 18b277efb4636584a9c888fc4638e4be, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7937250566483026227, guid: 18b277efb4636584a9c888fc4638e4be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -185,7 +252,7 @@ SortingGroup:
   m_GameObject: {fileID: 7152728036036705981}
   m_Enabled: 1
   m_SortingLayerID: 390378681
-  m_SortingLayer: 2
+  m_SortingLayer: -2
   m_SortingOrder: 0
 --- !u!4 &7575283059213387482 stripped
 Transform:
@@ -203,10 +270,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mino.Tetromino (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7249712539977371116, guid: 281d80ca64992544699b5a1c898b006f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bef63d3722e9c3a43938c8850283ab0a, type: 2}
     - target: {fileID: 7249712539977371119, guid: 281d80ca64992544699b5a1c898b006f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -286,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7937250566483026227, guid: 18b277efb4636584a9c888fc4638e4be, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7937250566483026227, guid: 18b277efb4636584a9c888fc4638e4be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -335,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7937250566483026227, guid: 18b277efb4636584a9c888fc4638e4be, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7937250566483026227, guid: 18b277efb4636584a9c888fc4638e4be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -384,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7937250566483026227, guid: 18b277efb4636584a9c888fc4638e4be, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7937250566483026227, guid: 18b277efb4636584a9c888fc4638e4be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -427,10 +490,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mino.Tetromino (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7249712539977371116, guid: 281d80ca64992544699b5a1c898b006f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bef63d3722e9c3a43938c8850283ab0a, type: 2}
     - target: {fileID: 7249712539977371119, guid: 281d80ca64992544699b5a1c898b006f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -504,10 +563,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mino.Tetromino
       objectReference: {fileID: 0}
-    - target: {fileID: 7249712539977371116, guid: 281d80ca64992544699b5a1c898b006f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bef63d3722e9c3a43938c8850283ab0a, type: 2}
     - target: {fileID: 7249712539977371119, guid: 281d80ca64992544699b5a1c898b006f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -581,10 +636,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mino.Tetromino (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 7249712539977371116, guid: 281d80ca64992544699b5a1c898b006f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bef63d3722e9c3a43938c8850283ab0a, type: 2}
     - target: {fileID: 7249712539977371119, guid: 281d80ca64992544699b5a1c898b006f, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -38,12 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Tetromino
+    uniqueID: 390378681
     locked: 0
   - name: Field
     uniqueID: 2862269259
     locked: 0
-  - name: Tetromino
-    uniqueID: 390378681
+  - name: Default
+    uniqueID: 0
     locked: 0

@@ -15,3 +15,4 @@ MonoBehaviour:
   <Type>k__BackingField: 2
   <Spawn>k__BackingField: 0
   <Material>k__BackingField: {fileID: 2100000, guid: 909a7ea0ca5c1414c8435a77098ef2b8, type: 2}
+  <Color>k__BackingField: {r: 1, g: 0.5568628, b: 0, a: 0}

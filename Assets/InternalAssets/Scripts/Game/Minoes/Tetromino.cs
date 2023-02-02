@@ -15,14 +15,20 @@ namespace Game.Minoes {
 
     public class Tetromino : MonoBehaviour
     {
+        [Header("VFX")]
+        [SerializeField] private Animator _trail;
+        [SerializeField] private ParticleSystem _dust;
+
         [field: Header("Parameters")]
         [field: SerializeField] public TetrominoType Type { get; private set; }
 
         [Header("Children")]
+        [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private Locator _moveLocator;
         [SerializeField] private Locator _lowerLocator;
         [SerializeField] private Locator _rotateLocator;
         [SerializeField] private Locator _previewLocator;
+
 
         [field: SerializeField] public List<Mino> Minoes { get; private set; }
 
@@ -140,7 +146,38 @@ namespace Game.Minoes {
 
             IsActive = false;
 
-            StartCoroutine(LandCoroutine(GamePrefs.Instance.LandTick));
+            UpdateLandPreview();
+            _previewLocator.gameObject.SetActive(false);
+            float height = transform.position.y - _previewLocator.transform.position.y;
+            transform.position = _previewLocator.transform.position;
+            
+            CreateVFX(height);
+
+            GameEventChannel.current.OnLand.Invoke();
+
+            //StartCoroutine(LandCoroutine(GamePrefs.Instance.LandTick));
+        }
+
+        private void CreateVFX(float height) {
+
+            var pos = _renderer.bounds.center;
+            float width;
+
+            if (transform.rotation.z % 180 <= 1) {
+                width = _renderer.bounds.size.x;
+                pos.y -= _renderer.bounds.extents.y;
+            } else {
+                width = _renderer.bounds.size.y;
+                pos.y -= _renderer.bounds.extents.x;
+            }
+
+            var pos1 = new Vector2(pos.x, transform.position.y + height / 2);
+            ParticleSystem dust = Instantiate(_dust, pos1, Quaternion.identity);
+
+            Animator vfx = Instantiate(_trail, pos, Quaternion.identity);
+            vfx.transform.localScale = new Vector2(width, height);
+
+            
         }
 
         private IEnumerator LandCoroutine(float time) {
