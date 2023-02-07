@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MIno.T
+  m_Name: Mino.T
   m_Shader: {fileID: -6465566751694194690, guid: baba3b35223a51447a67a667495a06ff, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -39,10 +39,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _Emission: 0
+    - _Lighting: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 0.81842756, g: 0, b: 1, a: 1}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _color: {r: 0.81960785, g: 0, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1630135370735314450
 MonoBehaviour:

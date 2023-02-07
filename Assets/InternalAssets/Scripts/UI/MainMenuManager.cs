@@ -8,6 +8,8 @@ namespace UI {
     {
         [SerializeField] private Button _play, _options, _exit;
 
+        [SerializeField] private Canvas _optionsCanvas;
+
         private void OnEnable() {
             _play.onClick.AddListener(Play);
             _options.onClick.AddListener(Options);
@@ -19,7 +21,7 @@ namespace UI {
         }
 
         private void Options() {
-            Debug.Log("Options");
+            _optionsCanvas.gameObject.SetActive(true);
         }
 
         private void Exit() {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Input;
+using UI;
 
 namespace Game {
     using System.Collections;
@@ -14,6 +15,7 @@ namespace Game {
         [Header("Channels")]
         [SerializeField] private GameEventChannel _gameEventChannel;
         [SerializeField] private InputEventChannel _inputEventChannel;
+        [SerializeField] private UIEventChannel _uiEventChannel;
 
         [Header("Preferences")]
         [SerializeField] private GamePrefs _gamePrefs;
@@ -30,6 +32,14 @@ namespace Game {
 
         public static IEnumerator EmptyCoroutine() {
             yield return null;
+        }
+
+        private void OnPauseClicked() {
+            _player.enabled = false;
+        }
+
+        private void OnResumeClicked() {
+            _player.enabled = true;
         }
 
         public void Restart() {

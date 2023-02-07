@@ -42,21 +42,28 @@ namespace Game {
         private void OnEnable() {
             Instance = this;
 
-            GameEventChannel.current.OnTick.AddListener(OnTick);
-            GameEventChannel.current.OnLand.AddListener(OnLand);
-            GameEventChannel.current.OnHoldAction.AddListener(OnHoldAction);
+            _gameEventChannel.OnTick.AddListener(OnTick);
+            _gameEventChannel.OnLand.AddListener(OnLand);
+            _gameEventChannel.OnHoldAction.AddListener(OnHoldAction);
 
-            GameEventChannel.current.OnRowsFilled.AddListener(OnRowsFilled);
-            GameEventChannel.current.OnGameOver.AddListener(OnGameOver);
+            _gameEventChannel.OnRowsFilled.AddListener(OnRowsFilled);
+            _gameEventChannel.OnGameOver.AddListener(OnGameOver);
+
+            _uiEventChannel.OnPauseClicked.AddListener(OnPauseClicked);
+            _uiEventChannel.OnResumeClicked.AddListener(OnResumeClicked);
         }
 
         private void OnDisable() {
-            GameEventChannel.current.OnTick.RemoveListener(OnTick);
-            GameEventChannel.current.OnLand.RemoveListener(OnLand);
-            GameEventChannel.current.OnHoldAction.RemoveListener(OnHoldAction);
+            
+            _gameEventChannel.OnTick.RemoveListener(OnTick);
+            _gameEventChannel.OnLand.RemoveListener(OnLand);
+            _gameEventChannel.OnHoldAction.RemoveListener(OnHoldAction);
 
-            GameEventChannel.current.OnRowsFilled.RemoveListener(OnRowsFilled);
-            GameEventChannel.current.OnGameOver.RemoveListener(OnGameOver);
+            _gameEventChannel.OnRowsFilled.RemoveListener(OnRowsFilled);
+            _gameEventChannel.OnGameOver.RemoveListener(OnGameOver);
+
+            _uiEventChannel.OnPauseClicked.RemoveListener(OnPauseClicked);
+            _uiEventChannel.OnResumeClicked.RemoveListener(OnResumeClicked);
         }
 
         private void Start() {

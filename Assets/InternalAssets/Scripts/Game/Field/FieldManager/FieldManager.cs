@@ -46,6 +46,8 @@ namespace Game.Field {
         }
 
         private void OnDisable() {
+
+            GameEventChannel.current.OnRowCleared.RemoveListener(delegate { FilledCount--; });
             GameEventChannel.current.OnGameOver.RemoveListener(BlockField);
         }
 
@@ -61,15 +63,20 @@ namespace Game.Field {
 
         private void CheckField() {
             _filledCount = 0;
+            int count = 0;
             for (int i = _rows.Count - 1; i >= 0; --i) {
 
                 if (!_rows[i].IsFilled) continue;
 
-                _rows[i].Light();
-
                 _filledCount++;
+                count++;
+
+                //_rows[i].Light();
+                _rows[i].Clear();
+                LowerRows(i);
+
             }
-            if (_filledCount != 0) {
+            if (count != 0) {
                 GameEventChannel.current.RowsFilled(_filledCount);
             }
         }

@@ -17,7 +17,7 @@ namespace Game.Field {
         [field: SerializeField] public List<Mino> Minoes { get; private set; }
         [SerializeField] private Animator _animator;
 
-        private int filledCount;
+        [SerializeField] private int filledCount;
 
         public bool IsFilled => filledCount == Minoes.Count;
 
@@ -35,8 +35,9 @@ namespace Game.Field {
             }
         }
 
-        public void Light(int value = 1) {
-            _animator.enabled = value != 0 ? true: false;
+        public void Light() {
+            _animator.SetTrigger("Clear");
+            //_animator.enabled = value != 0 ? true: false;
         }
 
         public void Clear() {
@@ -48,7 +49,7 @@ namespace Game.Field {
             filledCount = 0;
             State = NOT_UPDATED;
 
-            GameEventChannel.current.OnRowCleared.Invoke();
+            //GameEventChannel.current.OnRowCleared.Invoke();
         }
 
         public void Clear(int index) {

@@ -6,9 +6,9 @@ namespace Game {
 
     public partial class GameManager
     {
-        [SerializeField] private int _level = 0;
-        private int _score = 0;
-        private int _rowsCount = 0;
+        [SerializeField] private int _level = 1;
+        [SerializeField] private int _score = 0;
+        [SerializeField] private int _rowsCount = 0;
 
         public int Level {
             get => _level;
@@ -52,7 +52,7 @@ namespace Game {
                 case 4: pts = 1200; break;
             }
 
-            pts *= (Level + 1);
+            pts *= Level;
 
             Score += pts;
         }

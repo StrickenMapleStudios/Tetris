@@ -33,6 +33,8 @@ namespace Game.Minoes {
         public void UpdateStatus(TetrominoType type) {
             Type = type;
             Status = type == BASE ? EMPTY : FILLED;
+            //_renderer.material.color = GamePrefs.Instance.TetrominoDict[type].Color;
+            //_renderer.color = GamePrefs.Instance.TetrominoDict[type].Color;
             Material = GamePrefs.Instance.TetrominoDict[type].Material;
         }
 

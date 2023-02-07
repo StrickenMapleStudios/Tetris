@@ -63,13 +63,18 @@ namespace Game.Minoes {
                 _lowerLocator.Points[i].transform.position = Minoes[i].transform.position;
                 _rotateLocator.Points[i].transform.position = Minoes[i].transform.position;
                 _previewLocator.Points[i].transform.position = Minoes[i].transform.position;
-                _previewLocator.Points[i].UpdateMaterial(_material);
 
-                var renderer = _previewLocator.Points[i].GetComponent<SpriteRenderer>();
+                if (GamePrefs.Instance.ShowGhostPiece) {
+                    _previewLocator.Points[i].UpdateMaterial(_material);
+                }
             }
         }
 
         private void OnDisable() {
+            IsActive = false;
+        }
+
+        private void OnDestroy() {
             IsActive = false;
         }
 
@@ -151,7 +156,9 @@ namespace Game.Minoes {
             float height = transform.position.y - _previewLocator.transform.position.y;
             transform.position = _previewLocator.transform.position;
             
-            CreateVFX(height);
+            if (GamePrefs.Instance.ShowAnimations) {
+                CreateVFX(height);
+            }
 
             GameEventChannel.current.OnLand.Invoke();
 
@@ -171,8 +178,8 @@ namespace Game.Minoes {
                 pos.y -= _renderer.bounds.extents.x;
             }
 
-            var pos1 = new Vector2(pos.x, transform.position.y + height / 2);
-            ParticleSystem dust = Instantiate(_dust, pos1, Quaternion.identity);
+            //var pos1 = new Vector2(pos.x, transform.position.y + height / 2);
+            //ParticleSystem dust = Instantiate(_dust, pos1, Quaternion.identity);
 
             Animator vfx = Instantiate(_trail, pos, Quaternion.identity);
             vfx.transform.localScale = new Vector2(width, height);

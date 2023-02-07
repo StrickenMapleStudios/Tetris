@@ -128,6 +128,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3830355758197706073, guid: e346e9b2df9dde24384b87f18b7e9ebc, type: 3}
+      propertyPath: _trail
+      value: 
+      objectReference: {fileID: 7399160313473510968, guid: 5bd31b23c3ce8504c8b22603598e17f5, type: 3}
+    - target: {fileID: 3830355758197706073, guid: e346e9b2df9dde24384b87f18b7e9ebc, type: 3}
       propertyPath: _scriptableObject
       value: 
       objectReference: {fileID: 11400000, guid: 80615d1f9d982cb438bbc51c07902e41, type: 2}

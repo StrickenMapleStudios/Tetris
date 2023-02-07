@@ -8,5 +8,6 @@ namespace Game.Minoes {
         [field: SerializeField] public TetrominoType Type { get; private set; }
         [field: SerializeField] public Spawn Spawn { get; private set; }
         [field: SerializeField] public Material Material { get; private set; }
+        [field: SerializeField] public Color Color { get; private set; }
     }
 }

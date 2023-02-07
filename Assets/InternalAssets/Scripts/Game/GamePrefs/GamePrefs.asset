@@ -16,6 +16,11 @@ MonoBehaviour:
   <SpeedUpForLevel>k__BackingField: 0.03275862
   <LandTick>k__BackingField: 0.01
   <BlockFieldSpeed>k__BackingField: 0.05
+  <GeneralVolume>k__BackingField: 1
+  <FXVolume>k__BackingField: 1
+  <MusicVolume>k__BackingField: 1
+  <ShowAnimations>k__BackingField: 1
+  <ShowGhostPiece>k__BackingField: 1
   tetrominoes:
   - {fileID: 11400000, guid: 462540cc3f207d54882426f0b3dcda37, type: 2}
   - {fileID: 11400000, guid: 569a5ca3ee63ead458c0d7a1439cb711, type: 2}

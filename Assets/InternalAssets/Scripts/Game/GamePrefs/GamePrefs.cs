@@ -15,6 +15,14 @@ namespace Game {
         [field: SerializeField] public float LandTick { get; private set; }
         [field: SerializeField] public float BlockFieldSpeed { get; private set; }
 
+        [field: Header("Options")]
+        [field: SerializeField] public float GeneralVolume { get; set; } = 1;
+        [field: SerializeField] public float FXVolume { get; set; } = 1;
+        [field: SerializeField] public float MusicVolume { get; set; } = 1;
+
+        [field: SerializeField] public bool ShowAnimations { get; set; } = true;
+        [field: SerializeField] public bool ShowGhostPiece { get; set; } = true;
+
         [Header("")]
         [SerializeField] private List<TetrominoSO> tetrominoes;
 
