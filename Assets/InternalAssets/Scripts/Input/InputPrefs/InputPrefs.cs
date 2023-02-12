@@ -10,6 +10,9 @@ namespace Input {
         [field: SerializeField] public float TimeToHold { get; private set; }
         [field: SerializeField] public float TimeToUpdatePress { get; private set; }
 
+        [field: Header("Gamepad prefs")]
+        [field: SerializeField] public float Deadzone { get; private set; }
+
         private void OnEnable() {
             Instance = this;
         }

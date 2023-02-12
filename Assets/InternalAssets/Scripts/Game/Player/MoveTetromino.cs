@@ -10,7 +10,7 @@ namespace Game.Player {
     {
         private IEnumerator _move = GameManager.EmptyCoroutine();
 
-        private void OnMove(int direction) {
+        private void OnMove(float direction) {
 
             StopCoroutine(_move);
 
@@ -21,7 +21,7 @@ namespace Game.Player {
             StartCoroutine(_move);
         }
 
-        private IEnumerator MoveCoroutine(Tetromino tetromino, int direction) {
+        private IEnumerator MoveCoroutine(Tetromino tetromino, float direction) {
 
             yield return new WaitForSeconds(InputPrefs.Instance.TimeToHold);
 
@@ -31,7 +31,7 @@ namespace Game.Player {
             }
         }
 
-        private void Move(Tetromino tetromino, int direction) {
+        private void Move(Tetromino tetromino, float direction) {
             tetromino.TryMove(direction);
         }
     }

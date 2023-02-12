@@ -11,7 +11,7 @@ namespace Input {
     {
         public static InputEventChannel current { get; private set; }
 
-        public UnityEvent<int> OnMove = new UnityEvent<int>();
+        public UnityEvent<float> OnMove = new UnityEvent<float>();
         public UnityEvent OnLower = new UnityEvent();
         public UnityEvent OnLand = new UnityEvent();
         public UnityEvent OnRotate = new UnityEvent();
@@ -21,7 +21,7 @@ namespace Input {
         public bool IsLowering { get; private set; } = false;
         public bool IsRotating { get; private set; } = false;
 
-        public int LastDirection { get; private set; }
+        public float LastDirection { get; private set; }
 
         private void OnEnable() {
             current = this;
@@ -41,7 +41,9 @@ namespace Input {
             }
 
             if (context.started) {
-                LastDirection = (int) context.ReadValue<float>();
+                float value = context.ReadValue<float>();
+                if (Mathf.Abs(value) < InputPrefs.Instance.Deadzone) { LastDirection = 0; }
+                else { LastDirection = (int) Mathf.Sign(value); }
                 OnMove.Invoke(LastDirection);
             }
             IsMoving = !context.canceled;

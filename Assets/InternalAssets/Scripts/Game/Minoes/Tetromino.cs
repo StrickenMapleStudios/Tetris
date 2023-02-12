@@ -82,7 +82,7 @@ namespace Game.Minoes {
             transform.position = pos;
         }
 
-        internal void TryMove(int direction) {
+        internal void TryMove(float direction) {
             
             if (!IsActive) return;
 
