@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58de52f4c863af74e9af4cd4f775af23, type: 3}
   m_Name: GamePrefs
   m_EditorClassIdentifier: 
+  <TimerAcc>k__BackingField: 0.001
   <TickRate>k__BackingField: 1
   <SpeedUpForLevel>k__BackingField: 0.03275862
   <LandTick>k__BackingField: 0.01

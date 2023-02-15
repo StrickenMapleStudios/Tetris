@@ -5,10 +5,12 @@ using UnityEngine.UI;
 namespace UI {
 
     using Game;
+    using General;
 
     public class GameUIManager : MonoBehaviour
     {
         [Header("Labels")]
+        [SerializeField] private TextMeshProUGUI _timer;
         [SerializeField] private TextMeshProUGUI _level;
         [SerializeField] private TextMeshProUGUI _rowsCount;
         [SerializeField] private TextMeshProUGUI _score;
@@ -17,6 +19,8 @@ namespace UI {
         [SerializeField] private Button _pause;
 
         private void OnEnable() {
+            
+            GameEventChannel.current.OnLifetimeChanged.AddListener(OnLifetimeChanged);
             GameEventChannel.current.OnLevelChanged.AddListener(OnLevelChanged);
             GameEventChannel.current.OnScoreChanged.AddListener(OnScoreChanged);
             GameEventChannel.current.OnRowsCountChanged.AddListener(OnRowsCountChanged);
@@ -25,6 +29,7 @@ namespace UI {
         }
 
         private void OnDisable() {
+            GameEventChannel.current.OnLifetimeChanged.RemoveListener(OnLifetimeChanged);
             GameEventChannel.current.OnLevelChanged.RemoveListener(OnLevelChanged);
             GameEventChannel.current.OnScoreChanged.RemoveListener(OnScoreChanged);
             GameEventChannel.current.OnRowsCountChanged.RemoveListener(OnRowsCountChanged);
@@ -36,6 +41,10 @@ namespace UI {
             OnLevelChanged();
             OnScoreChanged();
             OnRowsCountChanged();
+        }
+
+        private void OnLifetimeChanged() {
+            _timer.text = Helper.FormatTime(GameManager.Instance.Lifetime, milliseconds: false);
         }
 
         private void OnLevelChanged() {

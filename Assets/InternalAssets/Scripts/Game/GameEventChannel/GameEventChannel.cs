@@ -24,13 +24,17 @@ namespace Game {
 
         public UnityEvent OnRowCleared = new UnityEvent();
 
-        public UnityEvent OnLevelChanged = new UnityEvent();
-
         public UnityEvent OnRowsCountChanged = new UnityEvent();
+
+        public UnityEvent OnLifetimeChanged = new UnityEvent();
+
+        public UnityEvent OnLevelChanged = new UnityEvent();
 
         public UnityEvent OnScoreChanged = new UnityEvent();
 
         public UnityEvent OnGameOver = new UnityEvent();
+
+        public UnityEvent<string> OnSaveResult = new UnityEvent<string>();
         
         private void OnEnable() {
             current = this;
@@ -38,6 +42,10 @@ namespace Game {
 
         public void RowsFilled(int count) {
             OnRowsFilled.Invoke(count);
+        }
+
+        public void SaveResult(string name) {
+            OnSaveResult.Invoke(name);
         }
     }
 }

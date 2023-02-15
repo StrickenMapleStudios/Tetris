@@ -6,9 +6,18 @@ namespace Game {
 
     public partial class GameManager
     {
+        [SerializeField] private float _lifetime = 0;
         [SerializeField] private int _level = 1;
         [SerializeField] private int _score = 0;
         [SerializeField] private int _rowsCount = 0;
+
+        public float Lifetime {
+            get => _lifetime;
+            private set {
+                _lifetime = value;
+                _gameEventChannel.OnLifetimeChanged.Invoke();
+            }
+        }
 
         public int Level {
             get => _level;
@@ -31,6 +40,13 @@ namespace Game {
             private set {
                 _rowsCount = value;
                 _gameEventChannel.OnRowsCountChanged.Invoke();
+            }
+        }
+
+        private IEnumerator Timer(float time) {
+            while (IsPlaying) {
+                yield return new WaitForSeconds(time);
+                Lifetime += Time.deltaTime;
             }
         }
 

@@ -47,11 +47,13 @@ namespace Game {
         }
 
         private void OnGameOver() {
+            IsPlaying = false;
+
+            StopCoroutine(_tick);
+
             CurrentTetromino.IsActive = false;
             _field.Place(CurrentTetromino, fieldUpdate: false);
             Destroy(CurrentTetromino.gameObject);
-            Debug.Log("Game Over!");
-            StopCoroutine(_tick);
         }
     }
 }

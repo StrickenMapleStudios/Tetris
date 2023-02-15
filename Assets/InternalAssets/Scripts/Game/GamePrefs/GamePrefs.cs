@@ -10,6 +10,7 @@ namespace Game {
         public static GamePrefs Instance { get; private set; }
 
         [field: Header("Preferences")]
+        [field: SerializeField] public float TimerAcc { get; private set; }
         [field: SerializeField] public float TickRate { get; private set; }
         [field: SerializeField] public float SpeedUpForLevel { get; private set; }
         [field: SerializeField] public float LandTick { get; private set; }

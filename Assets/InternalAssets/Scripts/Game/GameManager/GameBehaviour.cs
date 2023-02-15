@@ -18,7 +18,11 @@ namespace Game {
         private Tetromino _nextTetromino;
         private Tetromino _holdenTetromino;
 
+
+        public bool IsPlaying { get; private set; } = false;
+
         private bool _holdCooldown = false;
+
 
         public Tetromino CurrentTetromino {
             get => _currentTetromino;
@@ -51,6 +55,8 @@ namespace Game {
 
             _uiEventChannel.OnPauseClicked.AddListener(OnPauseClicked);
             _uiEventChannel.OnResumeClicked.AddListener(OnResumeClicked);
+
+            _gameEventChannel.OnSaveResult.AddListener(SaveResult);
         }
 
         private void OnDisable() {
@@ -64,6 +70,8 @@ namespace Game {
 
             _uiEventChannel.OnPauseClicked.RemoveListener(OnPauseClicked);
             _uiEventChannel.OnResumeClicked.RemoveListener(OnResumeClicked);
+
+            _gameEventChannel.OnSaveResult.RemoveListener(SaveResult);
         }
 
         private void Start() {
@@ -72,10 +80,16 @@ namespace Game {
 
         private IEnumerator StartGame(float seconds) {
             yield return new WaitForSeconds(seconds);
-            _nextTetromino = _spawner.SpawnTetromino();
 
+            IsPlaying = true;
+
+            StartCoroutine(Timer(_gamePrefs.TimerAcc));
+            
+            _nextTetromino = _spawner.SpawnTetromino();
             UpdateTetromino();
         }
+
+
 
         private void UpdateTetromino() {
             CurrentTetromino = _nextTetromino;
