@@ -37,7 +37,11 @@ namespace UI {
         }
 
         private void Exit() {
-            Application.Quit();
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
         }
     }
 }

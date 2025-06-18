@@ -30,9 +30,7 @@ namespace Game {
         [SerializeField] private SpawnPoint _nextPoint;
         [SerializeField] private SpawnPoint _holdPoint;
 
-        public static IEnumerator EmptyCoroutine() {
-            yield return null;
-        }
+
 
         private void OnPauseClicked() {
             _player.enabled = false;

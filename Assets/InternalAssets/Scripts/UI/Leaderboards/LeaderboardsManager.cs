@@ -26,6 +26,7 @@ namespace UI.Leaderboards {
         [SerializeField] private Transform _container;
 
         [Header("Buttons")]
+        [SerializeField] private Button _update;
         [SerializeField] private Button _reset;
         [SerializeField] private Button _ok;
 
@@ -38,6 +39,7 @@ namespace UI.Leaderboards {
             _level.onClick.AddListener(OnLevelClicked);
             _lifetime.onClick.AddListener(OnLifetimeClicked);
 
+            _update.onClick.AddListener(OnUpdateClicked);
             _reset.onClick.AddListener(OnResetClicked);
             _ok.onClick.AddListener(OnOkClicked);
         }
@@ -48,6 +50,7 @@ namespace UI.Leaderboards {
             _level.onClick.RemoveListener(OnLevelClicked);
             _lifetime.onClick.RemoveListener(OnLifetimeClicked);
 
+            _update.onClick.RemoveListener(OnUpdateClicked);
             _reset.onClick.RemoveListener(OnResetClicked);
             _ok.onClick.RemoveListener(OnOkClicked);
         }
@@ -91,6 +94,9 @@ namespace UI.Leaderboards {
             }
         }
 
+        private void OnUpdateClicked() {
+            UpdateTable();
+        }
 
         private void OnResetClicked() {
             _warning.gameObject.SetActive(true);

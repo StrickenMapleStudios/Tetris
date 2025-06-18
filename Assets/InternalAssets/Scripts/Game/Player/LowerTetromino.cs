@@ -8,7 +8,7 @@ namespace Game.Player {
 
     public partial class Player
     {
-        private IEnumerator _lower = GameManager.EmptyCoroutine();
+        private IEnumerator _lower = General.Helper.EmptyCoroutine();
 
         private void OnLower() {
             OnLower(isNewTetromino: false);

@@ -8,7 +8,7 @@ namespace Game.Player {
 
     public partial class Player
     {
-        private IEnumerator _move = GameManager.EmptyCoroutine();
+        private IEnumerator _move = General.Helper.EmptyCoroutine();
 
         private void OnMove(float direction) {
 

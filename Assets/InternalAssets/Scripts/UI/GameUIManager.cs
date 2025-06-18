@@ -60,7 +60,7 @@ namespace UI {
         }
 
         public void OnPauseClicked() {
-            UIEventChannel.current.OnPauseClicked.Invoke();
+            UIEventChannel.current.OnEscape.Invoke();
         }
 
     }

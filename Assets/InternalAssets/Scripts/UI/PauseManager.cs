@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,8 +12,9 @@ namespace UI {
         [SerializeField] private OptionsManager _optionsManager;
 
         private void OnEnable() {
-            Time.timeScale = 0;
 
+            UIEventChannel.current.OnEscape.AddListener(OnEscape);
+            
             _resume.onClick.AddListener(OnResumeClicked);
             _restart.onClick.AddListener(OnRestartClicked);
             _options.onClick.AddListener(OnOptionsClicked);
@@ -20,6 +22,8 @@ namespace UI {
         }
 
         private void OnDisable() {
+            UIEventChannel.current.OnEscape.RemoveListener(OnEscape);
+
             Time.timeScale = 1;
             _optionsManager.gameObject.SetActive(false);
 
@@ -28,6 +32,10 @@ namespace UI {
             _options.onClick.RemoveListener(OnOptionsClicked);
             _quit.onClick.RemoveListener(OnQuitClicked);
 
+        }
+
+        private void OnEscape() {
+            OnResumeClicked();
         }
 
         private void OnResumeClicked() {

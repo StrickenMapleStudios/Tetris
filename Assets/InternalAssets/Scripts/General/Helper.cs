@@ -26,5 +26,9 @@ namespace General {
             }
             return text;
         }
+
+        public static IEnumerator EmptyCoroutine() {
+            yield return null;
+        }
     }
 }

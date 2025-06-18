@@ -5,7 +5,7 @@ namespace Game {
 
     public partial class GameManager
     {
-        private IEnumerator _tick = EmptyCoroutine();
+        private IEnumerator _tick = General.Helper.EmptyCoroutine();
 
         private void StartTickCoroutine() {
             StopCoroutine(_tick);

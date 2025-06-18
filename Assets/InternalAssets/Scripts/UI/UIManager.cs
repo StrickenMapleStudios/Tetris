@@ -12,18 +12,20 @@ namespace UI {
         [SerializeField] private GameOverManager _gameOverUI;
 
         private void OnEnable() {
-            UIEventChannel.current.OnPauseClicked.AddListener(OnPauseClicked);
+
+            UIEventChannel.current.OnEscape.AddListener(Pause);
             
             GameEventChannel.current.OnGameOver.AddListener(OnGameOver);
         }
 
         private void OnDisable() {
-            UIEventChannel.current.OnPauseClicked.RemoveListener(OnPauseClicked);
+            UIEventChannel.current.OnEscape.RemoveListener(Pause);
 
             GameEventChannel.current.OnGameOver.RemoveListener(OnGameOver);
         }
 
-        private void OnPauseClicked() {
+        private void Pause() {
+            Time.timeScale = 0;
             _pauseUI.gameObject.SetActive(true);
         }
 

@@ -8,7 +8,7 @@ namespace Game.Player {
 
     public partial class Player
     {
-        private IEnumerator _rotate = GameManager.EmptyCoroutine();
+        private IEnumerator _rotate = General.Helper.EmptyCoroutine();
 
         private void OnRotate() {
             StopCoroutine(_rotate);

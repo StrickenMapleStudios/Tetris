@@ -17,6 +17,8 @@ namespace Input {
         public UnityEvent OnRotate = new UnityEvent();
         public UnityEvent OnHold = new UnityEvent();
 
+        public UnityEvent OnEscape = new UnityEvent();
+
         public bool IsMoving { get; private set; } = false;
         public bool IsLowering { get; private set; } = false;
         public bool IsRotating { get; private set; } = false;
@@ -77,6 +79,12 @@ namespace Input {
         public void OnHoldInput(InputAction.CallbackContext context) {
             if (context.started) {
                 OnHold.Invoke();
+            }
+        }
+
+        public void OnEscapeInput(InputAction.CallbackContext context) {
+            if (context.started) {
+                OnEscape.Invoke();
             }
         }
 

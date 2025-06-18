@@ -68,7 +68,7 @@ namespace UI {
         }
 
         private void OnDoneClicked() {
-            gameObject.SetActive(false);
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

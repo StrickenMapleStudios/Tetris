@@ -53,7 +53,7 @@ namespace Game {
             _gameEventChannel.OnRowsFilled.AddListener(OnRowsFilled);
             _gameEventChannel.OnGameOver.AddListener(OnGameOver);
 
-            _uiEventChannel.OnPauseClicked.AddListener(OnPauseClicked);
+            _uiEventChannel.OnEscape.AddListener(OnPauseClicked);
             _uiEventChannel.OnResumeClicked.AddListener(OnResumeClicked);
 
             _gameEventChannel.OnSaveResult.AddListener(SaveResult);
@@ -68,7 +68,7 @@ namespace Game {
             _gameEventChannel.OnRowsFilled.RemoveListener(OnRowsFilled);
             _gameEventChannel.OnGameOver.RemoveListener(OnGameOver);
 
-            _uiEventChannel.OnPauseClicked.RemoveListener(OnPauseClicked);
+            _uiEventChannel.OnEscape.RemoveListener(OnPauseClicked);
             _uiEventChannel.OnResumeClicked.RemoveListener(OnResumeClicked);
 
             _gameEventChannel.OnSaveResult.RemoveListener(SaveResult);
